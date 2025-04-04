@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -13,6 +14,7 @@ import { saveStressData } from "@/lib/stress-data"
 import ProtectedRoute from "@/components/protected-route"
 
 export default function TrackPage() {
+  const router = useRouter()
   const [stressLevel, setStressLevel] = useState(5)
   const [stressSource, setStressSource] = useState("")
   const [symptoms, setSymptoms] = useState("")
@@ -35,15 +37,8 @@ export default function TrackPage() {
 
     setSubmitted(true)
 
-    // Reset form after 2 seconds
-    setTimeout(() => {
-      setStressLevel(5)
-      setStressSource("")
-      setSymptoms("")
-      setLocation("")
-      setActivity("")
-      setSubmitted(false)
-    }, 2000)
+    // Redirect to dashboard after successful submission
+    router.push("/dashboard")
   }
 
   return (
