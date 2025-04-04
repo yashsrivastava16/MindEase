@@ -128,11 +128,12 @@ export default function RecommendationsPage() {
 
     // Activities
     {
-      title: "5-Minute Breathing Exercise",
-      description: "Simple breathing technique to calm your nervous system",
+      title: "3-Minute Breathing Space",
+      description: "A quick mindfulness practice to help you pause and reset",
       category: "activities",
-      stressLevel: "high",
+      stressLevel: "all",
       icon: Leaf,
+      link: "/recommendations/breathing-space",
     },
     {
       title: "15-Minute Yoga Sequence",
@@ -310,7 +311,9 @@ export default function RecommendationsPage() {
                   <li>2. Gently direct your attention to your breathing</li>
                   <li>3. Expand your awareness to your whole body</li>
                 </ol>
-                <Button>Start 3-Minute Timer</Button>
+                <Link href="/recommendations/breathing-space">
+                  <Button className="w-full">Start 3-Minute Timer</Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
